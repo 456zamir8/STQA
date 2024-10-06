@@ -1,14 +1,14 @@
-package p8;
+package p9;
 
+import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.support.ui.Select;
 
-import java.util.List;
-
-public class FindAllLinks {
+public class ComboBox {
     static String driverPath = "C:\\Users\\Usman\\503\\geckodriver.exe";
 
     public static void main(String[] args) {
@@ -17,25 +17,28 @@ public class FindAllLinks {
 
         // Create FirefoxOptions instance
         FirefoxOptions options = new FirefoxOptions();
+
         // Instantiate the Firefox WebDriver
         WebDriver driver = new FirefoxDriver(options);
-
-        // Set the application URL
-        String appUrl = "https://www.google.co.in/";
-        // Launch the browser and open the application URL
+        
+        // Define the application URL
+        String appUrl = "https://www.toolsqa.com/automation-practice-form/";
+        // Open the application URL in the browser
         driver.get(appUrl);
 
-        // Find all <a> tag elements
-        List<WebElement> links = driver.findElements(By.tagName("a"));
+        // Locate the dropdown element using its ID
+        Select dropdown = new Select(driver.findElement(By.id("continents")));
 
-        // Print all link texts and the total count of links
-        System.out.println("Total No. of Links: " + links.size());
-        for (int i = 0; i < links.size(); i++) {
-            String linkText = links.get(i).getText();
-            if (!linkText.isEmpty()) { // Check if link text is not empty
-                System.out.println((i + 1) + ": " + linkText);
-            }
+        // Get all options in the dropdown
+        List<WebElement> optionsList = dropdown.getOptions();
+        int totalOptions = optionsList.size();
+
+        // Print each option's text and the total number of options
+        System.out.println("Dropdown Options:");
+        for (WebElement option : optionsList) {
+            System.out.println(option.getText());
         }
+        System.out.println("Total No. of Items in Dropdown: " + totalOptions);
 
         // Close the browser
         driver.quit();

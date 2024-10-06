@@ -1,4 +1,4 @@
-//AIM: Write and test a program for logging in facebook webpage. 
+//AIM: Write and test a program for automate logging in facebook webpage. verify succesfull login with appropiate assertions.
 
 /* Creating the script in JAVA: 
 (NOTE that this script will be run by Eclipse IDE) 

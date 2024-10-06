@@ -1,3 +1,5 @@
+// count numbers of checkbox on a webpage, including checked and unchecked onces.
+
 /*Creating the script in JAVA: 
 (NOTE that this script will be run by Eclipse IDE) 
 (In simple words, it’s like we are  

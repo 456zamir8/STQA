@@ -1,4 +1,4 @@
-package p9;
+package p10;
 
 import java.util.List;
 import org.openqa.selenium.By;
@@ -6,9 +6,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
-import org.openqa.selenium.support.ui.Select;
 
-public class ComboBox {
+public class MultiCheckBox {
     static String driverPath = "C:\\Users\\Usman\\503\\geckodriver.exe";
 
     public static void main(String[] args) {
@@ -26,19 +25,27 @@ public class ComboBox {
         // Open the application URL in the browser
         driver.get(appUrl);
 
-        // Locate the dropdown element using its ID
-        Select dropdown = new Select(driver.findElement(By.id("continents")));
+        // Locate all checkboxes on the page
+        List<WebElement> checkBoxes = driver.findElements(By.xpath("//input[@type='checkbox']"));
 
-        // Get all options in the dropdown
-        List<WebElement> optionsList = dropdown.getOptions();
-        int totalOptions = optionsList.size();
+        int checkedCount = 0;
+        int uncheckedCount = 0;
 
-        // Print each option's text and the total number of options
-        System.out.println("Dropdown Options:");
-        for (WebElement option : optionsList) {
-            System.out.println(option.getText());
+        // Iterate through the checkboxes and count checked and unchecked
+        for (int i = 0; i < checkBoxes.size(); i++) {
+            boolean isSelected = checkBoxes.get(i).isSelected();
+            System.out.println(i + " checkbox is selected: " + isSelected);
+
+            if (isSelected) {
+                checkedCount++;
+            } else {
+                uncheckedCount++;
+            }
         }
-        System.out.println("Total No. of Items in Dropdown: " + totalOptions);
+
+        // Print the results
+        System.out.println("Number of selected checkboxes: " + checkedCount);
+        System.out.println("Number of unselected checkboxes: " + uncheckedCount);
 
         // Close the browser
         driver.quit();
