@@ -1,4 +1,7 @@
 <?php
+
+// Install selenium server and demonstrate it using a script in Java/php
+
 require 'vendor/autoload.php';
 
 use Facebook\WebDriver\Remote\RemoteWebDriver;

@@ -1,6 +1,8 @@
 <?php
 
 // write and test a program to get the numbers of items in a list/combo box
+
+
 // Autoload the Composer dependencies
 require_once 'vendor/autoload.php';
 
