@@ -3,3 +3,5 @@ composer: https://getcomposer.org/download/
 chrome: https://storage.googleapis.com/chrome-for-testing-public/130.0.6723.58/win64/chrome-win64.zip
 
 chrome driver: https://storage.googleapis.com/chrome-for-testing-public/130.0.6723.58/win64/chromedriver-win64.zip
+
+code: composer require php-webdriver/webdriver (run this code in cmd after installing composer)
